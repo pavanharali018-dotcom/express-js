@@ -43,3 +43,5 @@ app.listen(port,()=>{
 // - `app.get()` handles GET requests for a particular route.
 // - Middleware registered before a route usually runs before that route.
 // - `next()` passes control forward; without sending a response or calling `next()`, a middleware can leave the request hanging.
+
+//4.Sending a response
