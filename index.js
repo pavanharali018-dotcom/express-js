@@ -65,3 +65,25 @@ const app = express();
 // - If a route sends a response without calling `next()`, later middleware won't run for that request.
 // - Calling `next()` passes control to the next matching handler.
 
+
+//conditional middleware
+
+// Middleware
+app.use((req, res, next) => {
+    const hasID = true;
+
+    if (hasID) {
+        next(); // Allow the request to continue
+    } else {
+        res.send("Access denied! ID required.");
+    }
+});
+
+// Route
+app.get("/", (req, res) => {
+    res.send("Welcome to the library!");
+});
+
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
