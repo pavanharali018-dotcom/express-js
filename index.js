@@ -70,7 +70,7 @@ const app = express();
 
 // Middleware
 app.use((req, res, next) => {
-    const hasID = true;
+    const hasID = false;
 
     if (hasID) {
         next(); // Allow the request to continue
