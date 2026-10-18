@@ -1,5 +1,7 @@
-// const express=require("express");
-// const app = express();
+const express=require("express");
+const app = express();
+
+
 // const port=3000;
 // app.get("/contact",(req,res)=>{
 //     res.send("hello from contact server!");
@@ -9,8 +11,7 @@
 // });
 
 //express middleware
-// const express = require("express");
-// const app = express();
+
 
 // // Middleware
 // app.use((req, res, next) => {
@@ -63,3 +64,4 @@
 // - Middleware placed before a route can run before it.
 // - If a route sends a response without calling `next()`, later middleware won't run for that request.
 // - Calling `next()` passes control to the next matching handler.
+
