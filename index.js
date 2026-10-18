@@ -57,3 +57,9 @@
 // **Flow:** Request → Middleware → `next()` → Route → Response.
 
 // **Common uses:** Logging requests, authentication, processing request data, and security checks.
+
+// ### Middleware Order
+// - Express executes middleware and routes in registration order.
+// - Middleware placed before a route can run before it.
+// - If a route sends a response without calling `next()`, later middleware won't run for that request.
+// - Calling `next()` passes control to the next matching handler.
