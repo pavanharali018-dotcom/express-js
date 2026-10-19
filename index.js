@@ -69,27 +69,28 @@ const app = express();
 //conditional middleware
 
 // Middleware
-app.use((req, res, next) => {
-    const hasID = false;
+// app.use((req, res, next) => {
+//     const hasID = false;
 
-    if (hasID) {
-        next(); // Allow the request to continue
-    } else {
-        res.send("Access denied! ID required.");
-    }
-});
+//     if (hasID) {
+//         next(); // Allow the request to continue
+//     } else {
+//         res.send("Access denied! ID required.");
+//     }
+// });
 
 // Route
-app.get("/", (req, res) => {
-    res.send("Welcome to the library!");
-});
+// app.get("/", (req, res) => {
+//     res.send("Welcome to the library!");
+// });
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
-});
+// app.listen(3000, () => {
+//     console.log("Server running on port 3000");
+// });
 
 // ### Conditional Middleware
 // - Middleware can decide whether a request should continue.
 // - If a condition is satisfied, call `next()`.
 // - If access is denied, send a response using `res.send()` and don't call `next()`.
 // - Example use: authentication and access control.
+
