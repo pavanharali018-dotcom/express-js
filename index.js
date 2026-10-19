@@ -50,9 +50,9 @@ const app = express();
 //     next();
 // });
 
-// app.get("/", (req, res) => {
-//     res.send("Welcome!");
-// });
+app.get("/", (req, res) => {
+    res.send("Welcome bro!");
+});
 // ```
 
 // **Flow:** Request → Middleware → `next()` → Route → Response.
@@ -84,9 +84,9 @@ const app = express();
 //     res.send("Welcome to the library!");
 // });
 
-// app.listen(3000, () => {
-//     console.log("Server running on port 3000");
-// });
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
 
 // ### Conditional Middleware
 // - Middleware can decide whether a request should continue.
