@@ -128,7 +128,7 @@ app.listen(3000, () => {
 // - Register them before routes that need to access `req.body`.
 // - The request must use the appropriate content type.
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 // ### `express.static()`
 // - Built-in middleware used to serve static files such as HTML, CSS, images, and JavaScript.
@@ -137,3 +137,22 @@ app.use(express.static("public"));
 // - Subfolder paths are preserved in the URL.
 // - Example: `public/images/profile.jpg` → `/images/profile.jpg`.
 // - A request to `/` can serve `public/index.html` by default.
+
+app.use("/about",(req,res,next)=>{
+    console.log("about page middleware executed!");
+    next();
+});
+
+app.use("/contact",(req,res,next)=>{
+    console.log("Contact page middleware executed!");
+    next();
+});
+
+app.get("/about",(req,res)=>{
+    res.send("Welcome to about page");
+});
+
+app.get("/contact",(req,res)=>{
+    res.send("welcome to contact page");
+});
+
