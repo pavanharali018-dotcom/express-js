@@ -1,6 +1,10 @@
 const express=require("express");
 const app = express();
 
+app.listen(3000, () => {
+    console.log("Server running on port 3000");
+});
+
 
 // const port=3000;
 // app.get("/contact",(req,res)=>{
@@ -84,13 +88,23 @@ app.get("/", (req, res) => {
 //     res.send("Welcome to the library!");
 // });
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
-});
+
 
 // ### Conditional Middleware
 // - Middleware can decide whether a request should continue.
 // - If a condition is satisfied, call `next()`.
 // - If access is denied, send a response using `res.send()` and don't call `next()`.
 // - Example use: authentication and access control.
+
+//express.json() middleware
+
+// Middleware: parse incoming JSON
+app.use(express.json());
+
+// POST route: receive student data
+app.post("/students", (req, res) => {
+    console.log(req.body);
+
+    res.send("Student data received!");
+});
 
