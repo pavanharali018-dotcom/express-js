@@ -139,9 +139,16 @@ app.listen(3000, () => {
 // - A request to `/` can serve `public/index.html` by default.
 
 app.use("/about",(req,res,next)=>{
-    console.log("about page middleware executed!");
+    console.log("Middleware 1:Checking college ID");
     next();
 });
+
+app.use("/about",(req,res,next)=>{
+    console.log("Middleware 2:Checking college bag");
+    next();
+});
+
+
 
 app.use("/contact",(req,res,next)=>{
     console.log("Contact page middleware executed!");
@@ -149,7 +156,7 @@ app.use("/contact",(req,res,next)=>{
 });
 
 app.get("/about",(req,res)=>{
-    res.send("Welcome to about page");
+    res.send("Welcome to College");
 });
 
 app.get("/contact",(req,res)=>{
