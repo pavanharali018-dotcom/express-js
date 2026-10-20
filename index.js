@@ -149,9 +149,19 @@ app.use("/about",(req,res,next)=>{
 });
 
 
+// Middleware: Passing Data Using req
+
+// We can store custom data on the req object inside middleware.
+
+// The next middleware or route handler can access that data using req.
+
+// Call next() to pass control to the next matching handler.
+
+// Middleware must be registered before the route that needs its data.
 
 app.use("/contact",(req,res,next)=>{
-    console.log("Contact page middleware executed!");
+    req.username="Pavan";
+    req.id="123";
     next();
 });
 
@@ -160,6 +170,17 @@ app.get("/about",(req,res)=>{
 });
 
 app.get("/contact",(req,res)=>{
-    res.send("welcome to contact page");
+    res.send(`welcome to contact page ${req.username} ,ID:${req.id}`);
+   
 });
 
+// Important Notes
+// req.username and req.id are custom properties; Express does not create them automatically.
+
+// app.use("/contact", ...) matches paths beginning with /contact.
+
+// res.send() sends the response and ends it. Do not call it twice for the same request.
+
+// If middleware neither sends a response nor calls next(), the request may hang.
+
+// Data attached to req is available during that request's processing; it is not permanent storage.
