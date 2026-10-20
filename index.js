@@ -99,12 +99,24 @@ app.get("/", (req, res) => {
 //express.json() middleware
 
 // Middleware: parse incoming JSON
-app.use(express.json());
+// app.use(express.json());
 
 // POST route: receive student data
-app.post("/students", (req, res) => {
-    console.log(req.body);
+// app.post("/students", (req, res) => {
+//     console.log(req.body);
 
-    res.send("Student data received!");
+//     res.send("Student data received!");
+// });
+
+//express.urlencoded()
+// Parse URL-encoded form bodies
+app.use(express.urlencoded({ extended: true }));
+
+app.post("/login", (req, res) => {
+    console.log(req.body);
+    res.send("Form received!");
 });
+
+// express.urlencoded() creates middleware for parsing URL-encoded form bodies.
+// { extended: true } allows richer form data, including nested objects, to be parsed.
 
