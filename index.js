@@ -120,3 +120,10 @@ app.post("/login", (req, res) => {
 // express.urlencoded() creates middleware for parsing URL-encoded form bodies.
 // { extended: true } allows richer form data, including nested objects, to be parsed.
 
+// ### Built-in Body-Parsing Middleware
+
+// - `express.json()` parses incoming JSON request bodies.
+// - `express.urlencoded({ extended: true })` parses URL-encoded form bodies.
+// - Both make parsed data available through `req.body`.
+// - Register them before routes that need to access `req.body`.
+// - The request must use the appropriate content type.
