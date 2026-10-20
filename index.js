@@ -54,9 +54,9 @@ app.listen(3000, () => {
 //     next();
 // });
 
-app.get("/", (req, res) => {
-    res.send("Welcome bro!");
-});
+// app.get("/", (req, res) => {
+//     res.send("Welcome bro!");
+// });
 // ```
 
 // **Flow:** Request → Middleware → `next()` → Route → Response.
@@ -110,12 +110,12 @@ app.get("/", (req, res) => {
 
 //express.urlencoded()
 // Parse URL-encoded form bodies
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
-app.post("/login", (req, res) => {
-    console.log(req.body);
-    res.send("Form received!");
-});
+// app.post("/login", (req, res) => {
+//     console.log(req.body);
+//     res.send("Form received!");
+// });
 
 // express.urlencoded() creates middleware for parsing URL-encoded form bodies.
 // { extended: true } allows richer form data, including nested objects, to be parsed.
@@ -127,3 +127,5 @@ app.post("/login", (req, res) => {
 // - Both make parsed data available through `req.body`.
 // - Register them before routes that need to access `req.body`.
 // - The request must use the appropriate content type.
+
+app.use(express.static("public"));
