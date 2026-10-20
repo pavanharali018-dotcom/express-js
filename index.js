@@ -129,3 +129,11 @@ app.listen(3000, () => {
 // - The request must use the appropriate content type.
 
 app.use(express.static("public"));
+
+// ### `express.static()`
+// - Built-in middleware used to serve static files such as HTML, CSS, images, and JavaScript.
+// - `app.use(express.static("public"))` exposes files inside the `public` folder.
+// - The `public` folder name is not included in the URL.
+// - Subfolder paths are preserved in the URL.
+// - Example: `public/images/profile.jpg` → `/images/profile.jpg`.
+// - A request to `/` can serve `public/index.html` by default.
