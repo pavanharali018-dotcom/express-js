@@ -138,15 +138,15 @@ app.listen(3000, () => {
 // - Example: `public/images/profile.jpg` → `/images/profile.jpg`.
 // - A request to `/` can serve `public/index.html` by default.
 
-app.use("/about",(req,res,next)=>{
-    console.log("Middleware 1:Checking college ID");
-    next();
-});
+// app.use("/about",(req,res,next)=>{
+//     console.log("Middleware 1:Checking college ID");
+//     next();
+// });
 
-app.use("/about",(req,res,next)=>{
-    console.log("Middleware 2:Checking college bag");
-    next();
-});
+// app.use("/about",(req,res,next)=>{
+//     console.log("Middleware 2:Checking college bag");
+//     next();
+// });
 
 
 // Middleware: Passing Data Using req
@@ -159,20 +159,20 @@ app.use("/about",(req,res,next)=>{
 
 // Middleware must be registered before the route that needs its data.
 
-app.use("/contact",(req,res,next)=>{
-    req.username="Pavan";
-    req.id="123";
-    next();
-});
+// app.use("/contact",(req,res,next)=>{
+//     req.username="Pavan";
+//     req.id="123";
+//     next();
+// });
 
-app.get("/contact",(req,res)=>{
-    res.send(`welcome to contact page ${req.username} ,ID:${req.id}`);
+// app.get("/contact",(req,res)=>{
+//     res.send(`welcome to contact page ${req.username} ,ID:${req.id}`);
    
-});
+// });
 
-app.get("/about",(req,res)=>{
-    res.send("Welcome to College");
-});
+// app.get("/about",(req,res)=>{
+//     res.send("Welcome to College");
+// });
 
 // Important Notes
 // req.username and req.id are custom properties; Express does not create them automatically.
@@ -195,4 +195,51 @@ app.get("/error",(req,res,next)=>{
 app.use((err,req,res,next)=>{
     console.log(err.message);
     res.status(500).send("Customer Error:Something went wrong");
+ });
+
+
+
+
+// ## Error-Handling Middleware in Express.js
+
+// - Error-handling middleware handles errors that occur during request processing.
+// - It has **four parameters**: `err`, `req`, `res`, and `next`.
+// - Express identifies error-handling middleware by its four-parameter signature.
+// - `next(err)` passes an error to Express's error-handling flow.
+// - `new Error("message")` creates an error object; it does not trigger the error handler by itself.
+// - Register error-handling middleware **after routes and other middleware** so it can handle errors passed from them.
+// - `err.message` accesses the error message.
+// - `res.status(500)` sets the HTTP status to 500 (Internal Server Error).
+// - If middleware neither sends a response nor calls `next()`, the request may hang.
+
+// ### Example
+
+```js
+// Route that triggers an error
+app.get("/error", (req, res, next) => {
+    const err = new Error("Something went wrong!");
+    next(err);
 });
+
+// Error-handling middleware
+// app.use((err,req,res,next)=>{
+//     console.log(err.message);
+//     res.status(500).send("Customer Error:Something went wrong");
+// });
+```
+
+// ### Execution Flow
+
+// 1. The client requests `/error`.
+// 2. The route creates an error object.
+// 3. `next(err)` passes the error to Express.
+// 4. Express skips normal handlers and finds the next error-handling middleware.
+// 5. The error handler logs the message and sends a response with status 500.
+
+// ### Important HTTP Status Codes
+
+// - `200` — OK (successful request).
+// - `404` — Not Found (resource doesn't exist).
+// - `500` — Internal Server Error.
+
+// **Remember:** `next()` passes control normally, while `next(err)` passes an error to the error-handling flow.
