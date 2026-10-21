@@ -165,13 +165,13 @@ app.use("/contact",(req,res,next)=>{
     next();
 });
 
-app.get("/about",(req,res)=>{
-    res.send("Welcome to College");
-});
-
 app.get("/contact",(req,res)=>{
     res.send(`welcome to contact page ${req.username} ,ID:${req.id}`);
    
+});
+
+app.get("/about",(req,res)=>{
+    res.send("Welcome to College");
 });
 
 // Important Notes
@@ -184,3 +184,10 @@ app.get("/contact",(req,res)=>{
 // If middleware neither sends a response nor calls next(), the request may hang.
 
 // Data attached to req is available during that request's processing; it is not permanent storage.
+
+//Error Handling Middleware
+
+app.get("/error",(req,res,next)=>{
+    const err = new Error("Something went wrong");
+    next(err);
+});
