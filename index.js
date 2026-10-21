@@ -191,3 +191,8 @@ app.get("/error",(req,res,next)=>{
     const err = new Error("Something went wrong");
     next(err);
 });
+
+app.use((err,req,res,next)=>{
+    console.log(err.message);
+    res.status(500).send("Customer Error:Something went wrong");
+});
