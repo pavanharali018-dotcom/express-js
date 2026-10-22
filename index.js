@@ -283,7 +283,17 @@ app.listen(3000, () => {
 //Query Strings
 app.get("/search",(req,res)=>{
     console.log(req.query);
-    let{q}=req.query;
+    res.send(`Category: ${req.query.category}`);
+});
 
-    res.send(`result ${q}`);
+// app.get("/products", (req, res) => {
+//     console.log(req.query);
+//     res.send(`Category: ${req.query.category}`);
+// });
+
+//default values
+
+app.get("/products",(req,res)=>{
+    const {category,brand}=req.query;
+    res.send(`Category:${category||"all"},Brand:${brand ||"any"}`);
 })
