@@ -187,15 +187,15 @@ app.listen(3000, () => {
 
 //Error Handling Middleware
 
-app.get("/error",(req,res,next)=>{
-    const err = new Error("Something went wrong");
-    next(err);
-});
+// app.get("/error",(req,res,next)=>{
+//     const err = new Error("Something went wrong");
+//     next(err);
+// });
 
-app.use((err,req,res,next)=>{
-    console.log(err.message);
-    res.status(500).send("Customer Error:Something went wrong");
- });
+// app.use((err,req,res,next)=>{
+//     console.log(err.message);
+//     res.status(500).send("Customer Error:Something went wrong");
+//  });
 
 
 
@@ -214,34 +214,43 @@ app.use((err,req,res,next)=>{
 
 // ### Example
 
-```js
+
 // Route that triggers an error
-app.get("/error", (req, res, next) => {
-    const err = new Error("Something went wrong!");
-    next(err);
-});
+// app.get("/error", (req, res, next) => {
+//     const err = new Error("Something went wrong!");
+//     next(err);
+// });
 
 // Error-handling middleware
 // app.use((err,req,res,next)=>{
 //     console.log(err.message);
 //     res.status(500).send("Customer Error:Something went wrong");
 // });
-```
 
-// ### Execution Flow
 
-// 1. The client requests `/error`.
+// Execution Flow
+
+// 1. The client requests /error.
 // 2. The route creates an error object.
-// 3. `next(err)` passes the error to Express.
+// 3. next(err) passes the error to Express.
 // 4. Express skips normal handlers and finds the next error-handling middleware.
 // 5. The error handler logs the message and sends a response with status 500.
 
 // ### Important HTTP Status Codes
 
-// - `200` — OK (successful request).
-// - `404` — Not Found (resource doesn't exist).
-// - `500` — Internal Server Error.
+// - 200 — OK (successful request).
+// - 404 — Not Found (resource doesn't exist).
+// - 500 — Internal Server Error.
 
-// **Remember:** `next()` passes control normally, while `next(err)` passes an error to the error-handling flow.
+// **Remember:** next() passes control normally, while next(err) passes an error to the error-handling flow.
 
 //Path Parameters
+app.get("/",(req,res)=>{
+    res.send("Hello from root");
+});
+
+app.get("/:username/:id",(req,res)=>{
+    console.log(req.params);
+    let {username,id}=req.params;
+    res.send(`Welcome to the page of ${username}`);
+});
