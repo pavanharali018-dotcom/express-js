@@ -281,10 +281,10 @@ app.listen(3000, () => {
 // **Practical use:** `/products/42` identifies a partic
 
 //Query Strings
-app.get("/search",(req,res)=>{
-    console.log(req.query);
-    res.send(`Category: ${req.query.category}`);
-});
+// app.get("/search",(req,res)=>{
+//     console.log(req.query);
+//     res.send(`Category: ${req.query.category}`);
+// });
 
 // app.get("/products", (req, res) => {
 //     console.log(req.query);
@@ -293,7 +293,37 @@ app.get("/search",(req,res)=>{
 
 //default values
 
-app.get("/products",(req,res)=>{
-    const {category,brand}=req.query;
-    res.send(`Category:${category||"all"},Brand:${brand ||"any"}`);
-})
+// app.get("/products",(req,res)=>{
+//     const {category,brand}=req.query;
+//     res.send(`Category:${category||"all"},Brand:${brand ||"any"}`);
+// });
+
+// ## Query Strings in Express.js
+
+// - Query strings pass additional information through a URL after `?`.
+// - Use `&` to separate multiple query parameters.
+// - Access query parameters using `req.query`.
+// - Query parameter values are strings by default.
+// - If a parameter is missing, its value is `undefined`.
+// - Use default values with `||` when needed.
+// - Use destructuring to access multiple values easily.
+
+// ### Example
+
+// ```js
+// app.get("/search", (req, res) => {
+//     const { q, page } = req.query;
+//     res.send(`Search: ${q}, Page: ${page}`);
+// });
+// ```
+
+// URL: `/search?q=express&page=2`
+
+// Output: `Search: express, Page: 2`
+
+// ### Path Parameters vs Query Strings
+
+// - Path parameter: `/products/42` → `req.params.id` (with a matching `:id` route).
+// - Query string: `/products?id=42` → `req.query.id`.
+
+// **Practical use:** Search pages, filtering products, sorting, and pagination.
