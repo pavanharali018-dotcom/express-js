@@ -245,12 +245,37 @@ app.listen(3000, () => {
 // **Remember:** next() passes control normally, while next(err) passes an error to the error-handling flow.
 
 //Path Parameters
-app.get("/",(req,res)=>{
-    res.send("Hello from root");
-});
+// app.get("/:username/:id",(req,res)=>{
+//     console.log(req.params);
+//     let {username,id}=req.params;
+//     res.send(`<h1>User: ${username} and ID:${id}</h1>`);
+// });
 
-app.get("/:username/:id",(req,res)=>{
-    console.log(req.params);
-    let {username,id}=req.params;
-    res.send(`<h1>User: ${username} and ID:${id}</h1>`);
-});
+// app.get("/products/:category/:productId", (req, res) => {
+//     let { category, productId } = req.params;
+//     res.send(`Category: ${category}, Product: ${productId}`);
+// });
+
+// ### Path Parameters in Express.js
+
+// - Path parameters are dynamic values embedded in a URL.
+// - Use `:` to define a parameter in a route.
+// - Access parameter values using `req.params`.
+// - Path parameter values are strings by default.
+// - Useful for identifying specific resources, such as users, products, or tasks.
+
+// ular product that the backend can fetch from a database.**Example:**
+
+// ```js
+// app.get("/products/:category/:id", (req, res) => {
+//     const { category, id } = req.params;
+//     res.send(`Category: ${category}, ID: ${id}`);
+// });
+// ```
+
+// For `/products/electronics/42`:
+
+// - `category` → `"electronics"`
+// - `id` → `"42"`
+
+// **Practical use:** `/products/42` identifies a partic
