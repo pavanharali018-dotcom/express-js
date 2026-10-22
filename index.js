@@ -279,3 +279,5 @@ app.listen(3000, () => {
 // - `id` → `"42"`
 
 // **Practical use:** `/products/42` identifies a partic
+
+//Query Strings
