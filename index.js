@@ -243,3 +243,5 @@ app.get("/error", (req, res, next) => {
 // - `500` — Internal Server Error.
 
 // **Remember:** `next()` passes control normally, while `next(err)` passes an error to the error-handling flow.
+
+//Path Parameters
