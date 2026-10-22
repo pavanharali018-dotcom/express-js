@@ -283,6 +283,7 @@ app.listen(3000, () => {
 //Query Strings
 app.get("/search",(req,res)=>{
     console.log(req.query);
-    
-    res.send(`result`);
+    let{q}=req.query;
+
+    res.send(`result ${q}`);
 })
