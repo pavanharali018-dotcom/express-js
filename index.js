@@ -252,5 +252,5 @@ app.get("/",(req,res)=>{
 app.get("/:username/:id",(req,res)=>{
     console.log(req.params);
     let {username,id}=req.params;
-    res.send(`Welcome to the page of ${username}`);
+    res.send(`<h1>User: ${username} and ID:${id}</h1>`);
 });
