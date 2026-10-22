@@ -281,3 +281,8 @@ app.listen(3000, () => {
 // **Practical use:** `/products/42` identifies a partic
 
 //Query Strings
+app.get("/search",(req,res)=>{
+    console.log(req.query);
+    
+    res.send(`result`);
+})
