@@ -22,6 +22,6 @@ app.get("/",(req,res)=>{
     res.render("home.ejs");
 });
 
-app.listen(port,(req,res)=>{
+app.listen(port,()=>{
     console.log(`listening on port ${port}`);
 });
