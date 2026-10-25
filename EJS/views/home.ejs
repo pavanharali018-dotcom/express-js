@@ -8,8 +8,12 @@
 <body>
     <h1>Welcome, <%= username %>!! .Happy <%= age %>th Birthday!</h1>
     <% if (age>18) { %>
-        <p>You are an adult now!</p>
-    <% } %>
+        <p>You can vote!</p>
+    <% }
+    else{ %>
+        <p>You cannot vote now!</p>
+    <% }
+        %>
     
     
     <button>Click Me</button>
