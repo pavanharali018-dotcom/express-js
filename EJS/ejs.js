@@ -26,6 +26,10 @@ app.get("/",(req,res)=>{
     });
 });
 
+app.get("/rolldice",(req,res)=>{
+    res.render("rolldice");
+})
+
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
 });
