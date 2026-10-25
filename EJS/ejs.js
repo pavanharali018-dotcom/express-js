@@ -20,9 +20,12 @@ app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"/views"));
 
 app.get("/",(req,res)=>{
+    let names=["Vasant","Sanjay","Ritesh","Samrudh","Likeeth","Amit"];
+
     res.render("home",{
         username:"Pavan",
-        age:14
+        age:14,
+        names:names
     });
 });
 
