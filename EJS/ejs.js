@@ -37,3 +37,57 @@ app.get("/rolldice",(req,res)=>{
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
 });
+
+// Notes:
+// ## EJS Variables, Conditions & Loops
+
+// ### 1. Passing data to EJS
+// Use `res.render()` to pass data from Express to an EJS template.
+
+// ```js
+// res.render("home", {
+//     username: "Pavan",
+//     age: 19,
+//     names: ["Rahul", "Amit", "Sam"]
+// });
+// ```
+
+// ### 2. Displaying values
+// - `<%= username %>` — evaluates and displays a value.
+// - `<% ... %>` — executes JavaScript without directly displaying its result.
+
+// ```ejs
+// <h1>Welcome, <%= username %>!</h1>
+// ```
+
+// ### 3. Conditions in EJS
+// Use JavaScript conditions inside `<% %>` tags.
+
+// ```ejs
+// <% if (age >= 18) { %>
+//     <p>You can vote!</p>
+// <% } else { %>
+//     <p>You cannot vote yet.</p>
+// <% } %>
+// ```
+
+// ### 4. Loops in EJS
+// Use loops to display repeated content from arrays.
+
+// ```ejs
+// <% names.forEach((name) => { %>
+//     <p><%= name %></p>
+// <% }); %>
+// ```
+
+// - `forEach()` runs once for each array element.
+// - `<% %>` runs the loop logic.
+// - `<%= name %>` displays each name.
+
+// ### 5. Understanding EJS tags
+// - `<%` — starts an EJS code block.
+// - `%>` — ends the EJS tag, not necessarily the JavaScript block.
+// - `{` — opens a JavaScript block.
+// - `}` — closes a JavaScript block.
+
+// **Important:** All data passed to `res.render()` should be inside one data object.
