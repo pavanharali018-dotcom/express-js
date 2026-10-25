@@ -27,7 +27,8 @@ app.get("/",(req,res)=>{
 });
 
 app.get("/rolldice",(req,res)=>{
-    res.render("rolldice");
+    let dicevalue = Math.floor(Math.random()*6+1);
+    res.render("rolldice",{num:dicevalue});
 })
 
 app.listen(port,()=>{
