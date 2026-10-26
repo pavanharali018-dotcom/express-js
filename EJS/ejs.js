@@ -91,3 +91,5 @@ app.listen(port,()=>{
 // - `}` — closes a JavaScript block.
 
 // **Important:** All data passed to `res.render()` should be inside one data object.
+
+//creating instagram template for different usernames
