@@ -19,20 +19,20 @@ const port=3000;
 app.set("view engine", "ejs");
 app.set("views",path.join(__dirname,"/views"));
 
-app.get("/",(req,res)=>{
-    let names=["Vasant","Sanjay","Ritesh","Samrudh","Likeeth","Amit"];
+// app.get("/",(req,res)=>{
+//     let names=["Vasant","Sanjay","Ritesh","Samrudh","Likeeth","Amit"];
 
-    res.render("home",{
-        username:"Pavan",
-        age:14,
-        names:names
-    });
-});
+//     res.render("home",{
+//         username:"Pavan",
+//         age:14,
+//         names:names
+//     });
+// });
 
-app.get("/rolldice",(req,res)=>{
-    let dicevalue = Math.floor(Math.random()*6+1);
-    res.render("rolldice",{num:dicevalue});
-})
+// app.get("/rolldice",(req,res)=>{
+//     let dicevalue = Math.floor(Math.random()*6+1);
+//     res.render("rolldice",{num:dicevalue});
+// })
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
@@ -93,3 +93,7 @@ app.listen(port,()=>{
 // **Important:** All data passed to `res.render()` should be inside one data object.
 
 //creating instagram template for different usernames
+app.get("/ig:username",(req,res)=>{
+    let {username} = req.params;
+    console.log(username);
+});
