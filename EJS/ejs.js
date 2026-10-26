@@ -96,6 +96,6 @@ app.listen(port,()=>{
 app.get("/ig/:username",(req,res)=>{
     const followers = ["Amit","Likeeth","Sanjay","Vasant"];
     let {username} = req.params;
-    res.render("instagram",{username});
+    res.render("instagram",{username,followers});
     
 });
