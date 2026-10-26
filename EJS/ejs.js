@@ -95,5 +95,6 @@ app.listen(port,()=>{
 //creating instagram template for different usernames
 app.get("/ig:username",(req,res)=>{
     let {username} = req.params;
-    console.log(username);
+    res.render("instagram",{username});
+    
 });
