@@ -101,6 +101,9 @@ app.get("/ig/:username",(req,res)=>{
     if(data){
         res.render("instagram",{data});
     }
+    else{
+        res.render("error");
+    }
   
    
 });
