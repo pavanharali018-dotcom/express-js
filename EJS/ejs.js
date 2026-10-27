@@ -98,6 +98,9 @@ app.get("/ig/:username",(req,res)=>{
     
     const instaData = require("./data.json");
     const data = instaData[username];
-    res.render("instagram",{data});
+    if(data){
+        res.render("instagram",{data});
+    }
+  
    
 });
