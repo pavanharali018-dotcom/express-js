@@ -93,8 +93,8 @@ app.listen(port,()=>{
 // **Important:** All data passed to `res.render()` should be inside one data object.
 
 //creating instagram template for different usernames
-app.get("/ig/:username",(req,res)=>{
+app.get("/ig",(req,res)=>{
     const instaData = require("./data.json");
-    res.render("instagram",{username,followers});
-    
+    res.render("instagram");
+    console.log(instaData);
 });
