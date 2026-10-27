@@ -10,7 +10,11 @@
     <button>Follow</button>
     <button>Message</button>
     <p>Followes:<%= data.followers %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Following:<%= data.following %></p>
-    
+    <% for(let post of posts){%>
+        <img src=<%="post.image"  %>>
+        <p>Likes:<%= post.likes %>&nbsp;&nbsp;&nbsp;&nbsp;Comments<%=post.comments%></p>
+
+    <%} %>
 
 </body>
 </html>
