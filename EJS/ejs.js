@@ -94,8 +94,7 @@ app.listen(port,()=>{
 
 //creating instagram template for different usernames
 app.get("/ig/:username",(req,res)=>{
-    const followers = ["Amit","Likeeth","Sanjay","Vasant"];
-    let {username} = req.params;
+    const instaData = require("./data.json");
     res.render("instagram",{username,followers});
     
 });
