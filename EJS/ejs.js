@@ -107,3 +107,18 @@ app.get("/ig/:username",(req,res)=>{
   
    
 });
+
+
+//include() method:
+// ## EJS `include()` Method
+
+// - **Purpose:** Reuses one EJS template inside another template, avoiding duplicate code.
+// - Commonly used for shared components like headers, footers, and navigation bars.
+// - **Syntax:**
+//   ```ejs
+//   <%- include("includes/head.ejs") %>
+//   ```
+// - Create reusable EJS files inside the `views` folder, for example `views/includes/head.ejs`.
+// - **Important:** Use `<%- %>` to include rendered HTML without escaping it. Using `<%= %>` would escape the HTML instead.
+
+// **Benefit:** Write common HTML once and reuse it across multiple pages.
