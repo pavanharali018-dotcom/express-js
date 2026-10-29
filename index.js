@@ -327,3 +327,10 @@ app.listen(3000, () => {
 // - Query string: `/products?id=42` → `req.query.id`.
 
 // **Practical use:** Search pages, filtering products, sorting, and pagination.
+
+app.get("/register",(req,res)=>{
+
+    let { username } = req.query;
+    console.log(username);
+
+});

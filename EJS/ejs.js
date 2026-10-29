@@ -93,20 +93,20 @@ app.listen(port,()=>{
 // **Important:** All data passed to `res.render()` should be inside one data object.
 
 //creating instagram template for different usernames
-app.get("/ig/:username",(req,res)=>{
-    let { username } = req.params;
+// app.get("/ig/:username",(req,res)=>{
+//     let { username } = req.params;
     
-    const instaData = require("./data.json");
-    const data = instaData[username];
-    if(data){
-        res.render("instagram",{data});
-    }
-    else{
-        res.render("error");
-    }
+//     const instaData = require("./data.json");
+//     const data = instaData[username];
+//     if(data){
+//         res.render("instagram",{data});
+//     }
+//     else{
+//         res.render("error");
+//     }
   
    
-});
+// });
 
 
 //include() method:
@@ -122,3 +122,10 @@ app.get("/ig/:username",(req,res)=>{
 // - **Important:** Use `<%- %>` to include rendered HTML without escaping it. Using `<%= %>` would escape the HTML instead.
 
 // **Benefit:** Write common HTML once and reuse it across multiple pages.
+
+app.get("/register",(req,res)=>{
+    let { username } = req.query;
+    res.send("Successful");
+    console.log(username);
+
+});
