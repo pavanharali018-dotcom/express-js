@@ -34,9 +34,7 @@ app.set("views",path.join(__dirname,"/views"));
 //     res.render("rolldice",{num:dicevalue});
 // })
 
-app.listen(port,()=>{
-    console.log(`listening on port ${port}`);
-});
+
 
 // Notes:
 // ## EJS Variables, Conditions & Loops
@@ -123,9 +121,22 @@ app.listen(port,()=>{
 
 // **Benefit:** Write common HTML once and reuse it across multiple pages.
 
-app.get("/register",(req,res)=>{
-    let { username } = req.query;
-    res.send("Successful");
-    console.log(username);
+app.get("/",(req,res)=>{
+     res.sendFile(
+        path.join(__dirname, "../Miscellaneous/Frontend/index.html")
+    );
+   
+});
 
+app.get("/register", (req, res) => {
+    const { username, pass } = req.query;
+
+    console.log(username);
+    console.log(pass);
+
+    res.send(`Welcome, ${username}!`);
+});
+
+app.listen(port,()=>{
+    console.log(`listening on port ${port}`);
 });
