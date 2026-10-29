@@ -8,5 +8,6 @@ app.listen(port,()=>{
 });
 
 app.get("/register",(req,res)=>{
-   res.send("Standard get response!");
+    const {username,pass} = req.query;
+   res.send(`Welcome ${username}`);
 });
