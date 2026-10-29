@@ -121,21 +121,21 @@ app.set("views",path.join(__dirname,"/views"));
 
 // **Benefit:** Write common HTML once and reuse it across multiple pages.
 
-app.get("/",(req,res)=>{
-     res.sendFile(
-        path.join(__dirname, "../Miscellaneous/Frontend/index.html")
-    );
+// app.get("/",(req,res)=>{
+//      res.sendFile(
+//         path.join(__dirname, "../Miscellaneous/Frontend/index.html")
+//     );
    
-});
+// });
 
-app.get("/register", (req, res) => {
-    const { username, pass } = req.query;
+// app.get("/register", (req, res) => {
+//     const { username, pass } = req.query;
 
-    console.log(username);
-    console.log(pass);
+//     console.log(username);
+//     console.log(pass);
 
-    res.send(`Welcome, ${username}!`);
-});
+//     res.send(`Welcome, ${username}!`);
+// });
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);
