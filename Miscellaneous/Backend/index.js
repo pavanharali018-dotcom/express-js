@@ -7,7 +7,14 @@ app.listen(port,()=>{
     console.log(`listening on port ${port}`);
 });
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/register",(req,res)=>{
     const {username,pass} = req.query;
    res.send(`Welcome ${username}`);
+});
+
+app.post("/register",(req,res)=>{
+   console.log(req.body);
+   res.send("standard post request");
 });
