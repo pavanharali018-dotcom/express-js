@@ -15,6 +15,6 @@ app.get("/register",(req,res)=>{
 });
 
 app.post("/register",(req,res)=>{
-   console.log(req.body);
-   res.send("standard post request");
+   let {username, password}=req.body;
+   res.send(`standard post request!Welcome ${username}`);
 });
