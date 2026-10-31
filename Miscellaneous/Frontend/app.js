@@ -149,3 +149,73 @@
 // Factory functions create objects and return them directly. They are an alternative to constructor functions.
 
 //new operator
+// ## New Operator in JavaScript
+
+// The **`new` operator** creates a new object using a constructor function.
+
+// ### Example
+
+// ```js
+// function Student(name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+
+// Student.prototype.greet = function() {
+//     console.log("Hello " + this.name);
+// };
+
+// const s1 = new Student("Pavan", 19);
+// const s2 = new Student("Rahul", 20);
+
+// s1.greet();
+// s2.greet();
+// ```
+
+// ### What happens when we use `new`?
+
+// JavaScript automatically performs four operations:
+
+// 1. Creates a new empty object.
+// 2. Links the new object's prototype to the constructor's `prototype` property.
+// 3. Executes the constructor function with `this` referring to the new object.
+// 4. Returns the newly created object (unless the constructor explicitly returns another object).
+
+// ### How is it better than Factory Functions?
+
+// **Factory Function:**
+// - Creates a separate copy of methods for every object if methods are defined inside the factory.
+// - Can consume more memory when creating many objects.
+
+// **Constructor Function + `new`:**
+// - Methods can be defined once on the constructor's prototype.
+// - All instances share those methods.
+// - Avoids unnecessary duplication of functions.
+// - Provides a convenient pattern for creating multiple similar objects.
+
+// ### Example: Shared Methods
+
+// ```js
+// function Student(name) {
+//     this.name = name;
+// }
+
+// Student.prototype.greet = function() {
+//     console.log("Hello " + this.name);
+// };
+
+// const s1 = new Student("Pavan");
+// const s2 = new Student("Rahul");
+
+// console.log(s1.greet === s2.greet); // true
+// ```
+
+// Both objects use the same `greet()` function.
+
+// ### Key Points
+
+// - `new` is an operator, not a function.
+// - Constructor functions are conventionally named using PascalCase.
+// - `this` refers to the newly created object inside the constructor.
+// - Prototype methods are shared among instances.
+// - `new` helps create objects efficiently when using shared methods.
