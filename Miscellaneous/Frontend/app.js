@@ -147,3 +147,5 @@
 // ### Key Point
 
 // Factory functions create objects and return them directly. They are an alternative to constructor functions.
+
+//new operator
