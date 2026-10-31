@@ -109,4 +109,41 @@
 // - Arrays inherit methods from `Array.prototype`.
 // - Prototype inheritance is a fundamental part of JavaScript's object-oriented programming.
 
-//Factory Functions 
+//Factory Functions
+// ## Factory Functions in JavaScript
+
+// A **Factory Function** is a function that creates and returns objects without using the `new` keyword.
+
+// ### Example
+
+// ```js
+// function createStudent(name, age) {
+//     return {
+//         name: name,
+//         age: age,
+//         greet() {
+//             console.log("Hello " + this.name);
+//         }
+//     };
+// }
+
+// const s1 = createStudent("Pavan", 19);
+// const s2 = createStudent("Rahul", 20);
+
+// s1.greet(); // Hello Pavan
+// ```
+
+// ### Advantages
+// 1. Easy to create multiple objects.
+// 2. No need to use the `new` keyword.
+// 3. Flexible and simple syntax.
+// 4. Can hide private data using closures.
+
+// ### Disadvantages
+// 1. **Memory wastage:** Methods defined inside the factory are recreated for every object.
+// 2. **No shared prototype methods by default:** Each returned object gets its own copy of methods.
+// 3. Can become inefficient when creating a large number of objects with repeated methods.
+
+// ### Key Point
+
+// Factory functions create objects and return them directly. They are an alternative to constructor functions.
