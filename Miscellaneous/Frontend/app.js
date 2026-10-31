@@ -108,3 +108,5 @@
 // - JavaScript uses the prototype chain to look up inherited properties.
 // - Arrays inherit methods from `Array.prototype`.
 // - Prototype inheritance is a fundamental part of JavaScript's object-oriented programming.
+
+//Factory Functions 
