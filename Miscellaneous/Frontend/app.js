@@ -241,3 +241,5 @@
 
 // console.log(s1.name); // Pavan
 // s1.greet();           // Hello Pavan
+
+//Inheritance topics in JS
