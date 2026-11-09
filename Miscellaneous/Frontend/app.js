@@ -243,3 +243,69 @@
 // s1.greet();           // Hello Pavan
 
 //Inheritance topics in JS
+// **Inheritance** is an OOP concept that allows one class to acquire the properties and methods of another class.
+
+// It helps in code reusability and avoids writing the same code repeatedly.
+
+// ### Syntax
+
+// ```js
+// class Parent {
+//     greet() {
+//         console.log("Hello from Parent");
+//     }
+// }
+
+// class Child extends Parent {
+//     study() {
+//         console.log("Child is studying");
+//     }
+// }
+
+// const obj = new Child();
+
+// obj.greet(); // Hello from Parent
+// obj.study(); // Child is studying
+// ```
+
+// ### Important Keywords
+
+// 1. **extends:** Used to inherit a class from another class.
+// 2. **super:** Used to call the parent class constructor or access parent methods.
+
+// ### Example using `super()`
+
+// ```js
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//     }
+// }
+
+// class Student extends Person {
+//     constructor(name, age) {
+//         super(name);
+//         this.age = age;
+//     }
+// }
+
+// const s1 = new Student("Pavan", 19);
+
+// console.log(s1.name); // Pavan
+// console.log(s1.age);  // 19
+// ```
+
+// ### Advantages
+
+// 1. Promotes code reusability.
+// 2. Reduces code duplication.
+// 3. Makes code easier to maintain.
+// 4. Supports hierarchical relationships between classes.
+
+// ### Key Points
+
+// - Parent class is also called a base class.
+// - Child class is also called a derived class.
+// - `extends` establishes inheritance.
+// - `super()` calls the parent constructor.
+// - In a derived class constructor, `super()` must be called before using `this`.
