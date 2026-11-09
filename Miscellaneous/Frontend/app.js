@@ -219,3 +219,5 @@
 // - `this` refers to the newly created object inside the constructor.
 // - Prototype methods are shared among instances.
 // - `new` helps create objects efficiently when using shared methods.
+
+//Classes in JS
