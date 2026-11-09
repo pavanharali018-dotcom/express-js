@@ -221,3 +221,23 @@
 // - `new` helps create objects efficiently when using shared methods.
 
 //Classes in JS
+
+// A Class is a blueprint or template used to create objects. It defines properties and methods that its objects can use.
+
+// Syntax
+
+// class Student {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+
+//     greet() {
+//         console.log("Hello " + this.name);
+//     }
+// }
+
+// const s1 = new Student("Pavan", 19);
+
+// console.log(s1.name); // Pavan
+// s1.greet();           // Hello Pavan
