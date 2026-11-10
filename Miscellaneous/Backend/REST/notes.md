@@ -50,3 +50,39 @@ Advantages:
 - Improves performance.
 - Reduces repeated requests.
 - Reduces server workload.
+
+# REST Principles — Part 2
+
+### 4. Uniform Interface
+Provides a consistent way for clients and servers to communicate.
+
+Example:
+
+| Operation | HTTP Method | Endpoint |
+|---|---|---|
+| Get all students | GET | /students |
+| Get one student | GET | /students/101 |
+| Add student | POST | /students |
+| Update student | PATCH | /students/101 |
+| Delete student | DELETE | /students/101 |
+
+### 5. Layered System
+REST architecture can contain multiple intermediate layers, such as:
+- Security layers
+- Proxies
+- API gateways
+
+The client does not need to know the internal structure of these layers.
+
+### 6. Code on Demand (Optional)
+The server can send executable code to the client.
+
+Example: A server sends JavaScript code that the browser executes.
+
+### REST Principles — Quick Revision
+1. Client–Server
+2. Statelessness
+3. Cacheability
+4. Uniform Interface
+5. Layered System
+6. Code on Demand (Optional)
