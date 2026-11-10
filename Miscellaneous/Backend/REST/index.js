@@ -10,3 +10,8 @@ app.get("/students", (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
+//new route
+app.get("/students/new", (req, res) => {
+    res.send("Form to create a new student");
+});
