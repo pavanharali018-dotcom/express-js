@@ -15,3 +15,8 @@ app.listen(port, () => {
 app.get("/students/new", (req, res) => {
     res.send("Form to create a new student");
 });
+
+//create route
+app.post("/students", (req, res) => {
+    res.send("New student created");
+});
