@@ -7,20 +7,11 @@ app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.set(express.static(path.join(__dirname,"public")));
 
-app.get("/students", (req, res) => {
-    res.send("List of all students");
-});
+app.use(express.urlencoded({extended:true}));
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
 
-//new route
-app.get("/students/new", (req, res) => {
-    res.send("Form to create a new student");
-});
+// app.get("/posts", (req, res) => {
+//     res.render("List of all students");
+// });
 
-//create route
-app.post("/students", (req, res) => {
-    res.send("New student created");
-});
+
