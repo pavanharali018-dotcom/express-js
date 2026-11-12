@@ -1,3 +1,11 @@
 h1{
     color:maroon;
 }
+.container{
+    background-color:rgb(236, 214, 186);
+    border-radius:5px;
+    height:max-content;
+}
+.user{
+    font-style:italic;
+}
