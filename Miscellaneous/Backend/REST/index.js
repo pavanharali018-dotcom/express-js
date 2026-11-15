@@ -43,7 +43,9 @@ app.get("/posts/new",(req,res)=>{
 
 //post route
 app.post("/posts",(req,res)=>{
-  console.log(req.body);
+  
+  let {username,content} = req.body;
+  posts.push({username,content});
   res.send("Post request working");
 });
 
