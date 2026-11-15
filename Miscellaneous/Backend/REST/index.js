@@ -37,6 +37,8 @@ app.get("/posts", (req, res) => {
 });
 
 //create route
-
+app.get("/posts/new",(req,res)=>{
+   res.render("new.ejs");
+});
 
 
