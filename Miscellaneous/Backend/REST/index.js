@@ -41,4 +41,9 @@ app.get("/posts/new",(req,res)=>{
    res.render("new.ejs");
 });
 
+//post route
+app.post("/posts",(req,res)=>{
+  console.log(req.body);
+  res.send("Post request working");
+});
 
