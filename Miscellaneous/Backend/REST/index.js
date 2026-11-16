@@ -15,16 +15,19 @@ app.use(express.urlencoded({extended:true}));
 
 let posts = [
     { 
+      id:101,
       username:"CaptainAmerica",
       content:"i am brave soldier",
     },
 
      { 
+      id:102,
       username:"IronMan",
       content:"i am super intelligent billionaire",
     },
 
      { 
+      id:103,
       username:"Thor",
       content:"i am God of thunder",
     },
