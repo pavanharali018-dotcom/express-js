@@ -54,6 +54,7 @@ app.post("/posts",(req,res)=>{
 //show route
 app.get("/posts/:id",(req,res)=>{
     let {id} = req.params;
-    console.log(id);
+    let post = posts.find((p) => id===p.id );
+    console.log(post);
     res.send("request working");
 });
