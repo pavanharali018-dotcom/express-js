@@ -48,3 +48,5 @@ app.post("/posts",(req,res)=>{
   res.redirect("/posts");
 });
 
+//show route
+
