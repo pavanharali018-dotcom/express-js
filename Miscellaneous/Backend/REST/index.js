@@ -49,4 +49,8 @@ app.post("/posts",(req,res)=>{
 });
 
 //show route
-
+app.get("/posts/:id",(req,res)=>{
+    let {id} = req.params;
+    console.log(id);
+    res.send("request working");
+});
