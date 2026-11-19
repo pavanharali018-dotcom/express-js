@@ -52,5 +52,17 @@ app.post("/posts",(req,res)=>{
 });
 
 //show route
+app.get("/posts/:id", (req, res) => {
+    let { id } = req.params;
 
+    let post = posts.find((p) => Number(id) === p.id);
+
+    console.log(post);
+
+    if (!post) {
+        return res.status(404).send("Post not found");
+    }
+
+    res.render("show.ejs", { post });
+});
 
