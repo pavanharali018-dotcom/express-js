@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = 3000;
+const { v4: uuidv4 } = require('uuid');
+
 
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`);
@@ -15,19 +17,19 @@ app.use(express.urlencoded({extended:true}));
 
 let posts = [
     { 
-      id:101,
+      id: uuidv4(),
       username:"CaptainAmerica",
       content:"i am brave soldier",
     },
 
      { 
-      id:102,
+      id:uuidv4(),
       username:"IronMan",
       content:"i am super intelligent billionaire",
     },
 
      { 
-      id:103,
+      id:uuidv4(),
       username:"Thor",
       content:"i am God of thunder",
     },
@@ -47,7 +49,8 @@ app.get("/posts/new",(req,res)=>{
 //post route
 app.post("/posts",(req,res)=>{
   let {username,content} = req.body;
-  posts.push({username,content});
+  let id = uuidv4();
+  posts.push({ id , username ,content});
   res.redirect("/posts");
 });
 
@@ -55,7 +58,7 @@ app.post("/posts",(req,res)=>{
 app.get("/posts/:id", (req, res) => {
     let { id } = req.params;
 
-    let post = posts.find((p) => Number(id) === p.id);
+    let post = posts.find((p) =>id === p.id);
 
     if (!post) {
         return res.status(404).send("Post not found");
