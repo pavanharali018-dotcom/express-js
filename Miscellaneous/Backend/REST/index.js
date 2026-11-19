@@ -52,10 +52,24 @@ app.post("/posts",(req,res)=>{
 });
 
 //show route
+// app.get("/posts/:id",(req,res)=>{
+//     let {id} = req.params;
+//     let post = posts.find((p) => id===String(p.id));
+//     console.log(post);
+//     res.send("working");
+//     // res.render("show.ejs",{post});
+// });
+
+//new show route
 app.get("/posts/:id",(req,res)=>{
     let {id} = req.params;
-    let post = posts.find((p) => id===String(p.id));
-    console.log(post);
+
+    console.log("Requested ID:", id);
+    console.log("Available posts:", posts);
+
+    let post = posts.find((p) => id === String(p.id));
+
+    console.log("Found post:", post);
+
     res.send("working");
-    // res.render("show.ejs",{post});
 });
