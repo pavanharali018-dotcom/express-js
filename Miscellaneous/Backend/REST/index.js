@@ -57,8 +57,6 @@ app.get("/posts/:id", (req, res) => {
 
     let post = posts.find((p) => Number(id) === p.id);
 
-    console.log(post);
-
     if (!post) {
         return res.status(404).send("Post not found");
     }
