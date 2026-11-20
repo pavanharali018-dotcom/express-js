@@ -69,6 +69,7 @@ app.get("/posts/:id", (req, res) => {
 
 //patch 
 app.patch("/posts/:id",(req,res)=>{
-    console.log(id);
+    let newContent  = req.body.content;
+    console.log(newContent);
     res.send("Patch route working");
 });
