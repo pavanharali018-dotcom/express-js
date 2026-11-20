@@ -70,6 +70,7 @@ app.get("/posts/:id", (req, res) => {
 //patch 
 app.patch("/posts/:id",(req,res)=>{
     let newContent  = req.body.content;
-    console.log(newContent);
+    let post = posts.find((p) =>id === p.id);
+    post.content = newContent;
     res.send("Patch route working");
 });
