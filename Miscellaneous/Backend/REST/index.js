@@ -67,3 +67,8 @@ app.get("/posts/:id", (req, res) => {
     res.render("show.ejs", { post });
 });
 
+//patch 
+app.patch("/posts/:id",(req,res)=>{
+    console.log(id);
+    res.send("Patch route working");
+});
