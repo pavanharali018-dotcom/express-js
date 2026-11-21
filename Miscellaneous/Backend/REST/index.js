@@ -74,3 +74,8 @@ app.patch("/posts/:id",(req,res)=>{
     post.content = newContent;
     res.send("Patch route working");
 });
+
+//Edit route
+app.get("/posts/:id/edit",(req,res)=>{
+    res.send("edit route working");
+});
