@@ -77,5 +77,7 @@ app.patch("/posts/:id",(req,res)=>{
 
 //Edit route
 app.get("/posts/:id/edit",(req,res)=>{
-    res.send("edit route working");
+    let { id } = req.params;
+    let post = posts.find((p) =>id === p.id);
+    res.render("edit");
 });
