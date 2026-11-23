@@ -71,6 +71,7 @@ app.get("/posts/:id", (req, res) => {
 
 //patch 
 app.patch("/posts/:id",(req,res)=>{
+    let { id } = req.params;
     let newContent  = req.body.content;
     let post = posts.find((p) =>id === p.id);
     post.content = newContent;
@@ -81,5 +82,5 @@ app.patch("/posts/:id",(req,res)=>{
 app.get("/posts/:id/edit",(req,res)=>{
     let { id } = req.params;
     let post = posts.find((p) =>id === p.id);
-    res.render("edit",{posts});
+    res.render("edit",{post});
 });
