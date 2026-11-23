@@ -87,3 +87,11 @@ app.get("/posts/:id/edit", (req, res) => {
     if (!post) return res.status(404).send("Post not found");
     res.render("edit", { post });
 });
+
+//delete
+app.delete("/posts/:id",(req,res)=>{
+    let { id } = req.params;
+    posts = posts.filter((p) => id !== p.id);
+    res.redirect("/posts");
+    
+});
