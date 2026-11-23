@@ -71,17 +71,19 @@ app.get("/posts/:id", (req, res) => {
 
 //patch 
 app.patch("/posts/:id",(req,res)=>{
+    console.log("body:", req.body);
     let { id } = req.params;
     let newContent  = req.body.content;
     let post = posts.find((p) =>id === p.id);
     post.content = newContent;
     console.log(post);
-    res.send("Patch route working");
+    res.redirect("/posts");
 });
 
 //Edit route
-app.get("/posts/:id/edit",(req,res)=>{
+app.get("/posts/:id/edit", (req, res) => {
     let { id } = req.params;
-    let post = posts.find((p) =>id === p.id);
-    res.render("edit",{post});
+    let post = posts.find((p) => id === p.id);
+    if (!post) return res.status(404).send("Post not found");
+    res.render("edit", { post });
 });
