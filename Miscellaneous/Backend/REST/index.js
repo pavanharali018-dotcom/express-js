@@ -3,7 +3,9 @@ const app = express();
 const path = require("path");
 const port = 3000;
 const { v4: uuidv4 } = require('uuid');
+const methodOverride = require("method-override");
 
+app.use(methodOverride("_method"));
 
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`);
