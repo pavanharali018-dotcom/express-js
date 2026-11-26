@@ -27,6 +27,9 @@ let students = [
 ];
 
 // Routes will be added here
+app.get("/students",(req,res)=>{
+    res.send(students);
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
