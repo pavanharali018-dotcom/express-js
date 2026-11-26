@@ -1,5 +1,5 @@
 const express = require("express");
-
+const { v4: uuidv4 } = require("uuid");
 const app = express();
 app.use(express.json());
 const port = 3000;
@@ -37,6 +37,24 @@ app.get("/students/:id",(req,res)=>{
     let { id } = req.params;
     let student = students.find((s)=>s.id===id);
     res.json(student);
+});
+
+//Create route
+app.post("/students", (req, res) => {
+    let id = uuidv4();
+
+    let { name, age, branch } = req.body;
+
+    let newStudent = {
+        id,
+        name,
+        age,
+        branch
+    };
+
+    students.push(newStudent);
+
+    res.status(201).json(newStudent);
 });
 
 
