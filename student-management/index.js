@@ -27,9 +27,18 @@ let students = [
 ];
 
 // Routes will be added here
+//index route
 app.get("/students",(req,res)=>{
     res.send(students);
 });
+
+//show route
+app.get("/students/:id",(req,res)=>{
+    let { id } = req.params;
+    let student = students.find((s)=>s.id===id);
+    res.json(student);
+});
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
