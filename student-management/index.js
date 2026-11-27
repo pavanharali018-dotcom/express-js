@@ -57,6 +57,13 @@ app.post("/students", (req, res) => {
     res.status(201).json(newStudent);
 });
 
+//edit route
+app.get("/students/:id/edit",(req,res)=>{
+    let { id } = req.params;
+    let student = students.find((s)=>s.id===id);
+    res.json(student);
+});
+
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
