@@ -75,9 +75,15 @@ app.patch("/students/:id",(req,res)=>{
     let { id } = req.params;
     let student = students.find((s)=>s.id===id);
     let { name, age, branch } = req.body;
-    student.name = name;
-    student.age = age;
-    student.branch = branch;
+    if(req.body.name!==undefined){
+      student.name = name;
+    }
+     if(req.body.age!==undefined){
+      student.age = age;
+    }
+     if(req.body.branch!==undefined){
+      student.branch = branch;
+    }
     res.status(200).json(student);
 });
 
