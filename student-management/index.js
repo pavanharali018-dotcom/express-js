@@ -36,6 +36,9 @@ app.get("/students",(req,res)=>{
 app.get("/students/:id",(req,res)=>{
     let { id } = req.params;
     let student = students.find((s)=>s.id===id);
+    if(!student){
+        return res.status(404).send("Student not found!");
+    }
     res.json(student);
 });
 
