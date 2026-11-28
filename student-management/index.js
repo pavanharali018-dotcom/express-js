@@ -74,6 +74,9 @@ app.get("/students/:id/edit",(req,res)=>{
 app.patch("/students/:id",(req,res)=>{
     let { id } = req.params;
     let student = students.find((s)=>s.id===id);
+    if(!student){
+        return res.status(404).send("Student not found!!");
+    }
     let { name, age, branch } = req.body;
     if(req.body.name!==undefined){
       student.name = name;
@@ -84,6 +87,7 @@ app.patch("/students/:id",(req,res)=>{
      if(req.body.branch!==undefined){
       student.branch = branch;
     }
+    
     res.status(200).json(student);
 });
 
